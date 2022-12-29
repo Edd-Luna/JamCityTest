@@ -61,37 +61,37 @@ public class Movement : MonoBehaviour
     }
 
     private void OnTriggerStay2D(Collider2D other) 
-    {
-        if (other.tag == "Bottom")
+    {  
+        switch (other.tag)
         {
-        transform.position = new Vector2(transform.position.x, -borderY);
-        speedY = -(speedY - (speedY*disperseY)/100);
-        if (speedY == 0.0f)
-        {
+            case "Bottom":
+            transform.position = new Vector2(transform.position.x, -borderY);
+            speedY = -(speedY - (speedY*disperseY)/100);
+            if (speedY == 0.0f)
+            {
             gravity= 0.0f;
-        }
-        }
+            }
+            break;
 
-        if (other.tag == "Top")
-        {
-        transform.position = new Vector2(transform.position.x, borderY);
-        speedY = -(speedY - (speedY*disperseY)/100);
-        if (speedY == 0.0f)
-        {
+            case "Top":
+            transform.position = new Vector2(transform.position.x, borderY);
+            speedY = -(speedY - (speedY*disperseY)/100);
+            if (speedY == 0.0f)
+            {
             gravity= 0.0f;
-        }
-        }
+            }
+            break;
 
-        if (other.tag == "Right")
-        {
-        transform.position = new Vector2(borderX, transform.position.y);
-        speedX = -(speedX - (speedX*disperseX)/100);
-        }
+            case "Right":
+            transform.position = new Vector2(borderX, transform.position.y);
+            speedX = -(speedX - (speedX*disperseX)/100);
+            break;
 
-        if (other.tag == "Left")
-        {
-        transform.position = new Vector2(-borderX, transform.position.y);
-        speedX = -(speedX - (speedX*disperseX)/100);
+            case "Left":
+            transform.position = new Vector2(-borderX, transform.position.y);
+            speedX = -(speedX - (speedX*disperseX)/100);
+            break;
+
         }
     }
 }

@@ -1,0 +1,13 @@
+Para optimizar el uso de memoria, hice uso del metodo Destroy(gameObject) 
+ya que este destruye los objetos de la escena que no son necesarios. En el caso
+particular de esta escena, las bolas deben desaparecer 5 segundos después de ser creadas.
+Si se desactivaran o ocultaran, su movimiento aun usaía recursos de procesamiento.
+Es por ello que la opcipon de destruir es más optimo en cuanto a manejo "amigable" de memoria en el
+dispositvo. 
+
+
+To optomize the usage of memory, i used the method Destroy(gameObject)
+since it destroys the objects on the scene when they're not needed. In the 
+particular case of this scene, tha balls must disapper 5 seconds after being created. 
+If they're deactived or hidden, their movement would still use processing resources. 
+For that reason the option of destroying is the most optimus regarding the "friendly" management of memory in the device. 

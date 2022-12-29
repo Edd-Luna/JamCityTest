@@ -16,6 +16,10 @@ public class ReducedDamage : UnitHealth
     }
     public override int GetCurrentHealth()
     {
+        if (unitHealth <= 0)
+        {
+            unitHealth = 0;
+        }
         return unitHealth;
     }
 }

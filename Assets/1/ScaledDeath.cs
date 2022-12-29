@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScaledDeath : MonoBehaviour
 {
     private UnitHealth unitHealtScrpit;
-    private Vector3 scaleChange = new Vector3(0.1f, 0.1f, 0.1f);
+    private Vector3 scaleChange = new Vector3(0.2f, 0.2f, 0.2f);
     // Start is called before the first frame update
     void Start()
     {
