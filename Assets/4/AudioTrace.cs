@@ -29,26 +29,27 @@ public class AudioTrace : MonoBehaviour
 
     void Update()
     {
+        playerAudio.volume = sfxValue;
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            playerAudio.PlayOneShot(RandomAudio(), sfxValue);
+            playerAudio.PlayOneShot(RandomAudio());
         }
 
         if(playerScript.IsMoving)
         {
             if(playerScript.CurrentFloor == FloorType.Wood)
             {
-               playerAudio.PlayOneShot(woodSound, sfxValue);          
+               playerAudio.PlayOneShot(woodSound);          
             }  
 
             if(playerScript.CurrentFloor == FloorType.Grass)
             {
-                playerAudio.PlayOneShot(grassSound, sfxValue);   
+                playerAudio.PlayOneShot(grassSound);   
             }
 
             if(playerScript.CurrentFloor == FloorType.Metal)
             {
-                playerAudio.PlayOneShot(metalSound, sfxValue);    
+                playerAudio.PlayOneShot(metalSound);    
             }
         }
     }

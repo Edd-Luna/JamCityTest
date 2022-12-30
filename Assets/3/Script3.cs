@@ -27,28 +27,70 @@ public class Script3 : MonoBehaviour
 
     private void SerializeTransform(Transform transform, NetDataWriter dataWriter)
     {
-        dataWriter.Put(transform.position.x);
-        dataWriter.Put(transform.position.y);
-        dataWriter.Put(transform.position.z);
+        switch (transform.position.x)
+        {
+            case < -5.0f:
+                transform.position = new Vector2(-5.0f, transform.position.y);
+                dataWriter.Put(transform.position.x);
+                break;
+            
+            case > 5.0f:
+                transform.position = new Vector2(5.0f, transform.position.y);
+                dataWriter.Put(transform.position.x);
+                break;
+            
+            default:
+                dataWriter.Put(transform.position.x);
+                break;
+        }
 
-        dataWriter.Put(transform.eulerAngles.x);
-        dataWriter.Put(transform.eulerAngles.y);
-        dataWriter.Put(transform.eulerAngles.z);
+        switch(transform.position.y)
+        {
+            case < -5.0f:
+                transform.position = new Vector2(transform.position.x, -5.0f);
+                dataWriter.Put(transform.position.y);
+                break;
+
+            case > 5.0f:
+                transform.position = new Vector2(transform.position.x, 5.0f);
+                dataWriter.Put(transform.position.y);
+                break;
+
+            default:
+                dataWriter.Put(transform.position.y);
+                break;
+        }
+        //dataWriter.Put(transform.position.z);
+
+        //dataWriter.Put(transform.eulerAngles.x);
+        //dataWriter.Put(transform.eulerAngles.y);
+        
+        if(transform.eulerAngles.x != 0.0f || transform.eulerAngles.y != 0.0f)
+        {
+            transform.eulerAngles = new Vector3(0.0f, 0.0f, transform.eulerAngles.z);
+            dataWriter.Put(transform.eulerAngles.z);
+        }
+        else
+        {
+            dataWriter.Put(transform.eulerAngles.z);
+        } 
     }
 
     private void DeserializeTransform(Transform transform, NetDataReader dataReader)
     {
-        Vector3 newPosition = new Vector3();
+        Vector2 newPosition = new Vector2();
         newPosition.x = dataReader.GetFloat();
         newPosition.y = dataReader.GetFloat();
-        newPosition.z = dataReader.GetFloat();
+        //newPosition.z = dataReader.GetFloat();
 
         Vector3 newRotation = new Vector3();
-        newRotation.x = dataReader.GetFloat();
-        newRotation.y = dataReader.GetFloat();
+        //newRotation.x = dataReader.GetFloat();
+        //newRotation.y = dataReader.GetFloat();
         newRotation.z = dataReader.GetFloat();
 
         transform.position = newPosition;
         transform.eulerAngles = newRotation;
+
+
     }
 }
