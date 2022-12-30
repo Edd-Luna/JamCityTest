@@ -60,10 +60,6 @@ public class Script3 : MonoBehaviour
                 dataWriter.Put(transform.position.y);
                 break;
         }
-        //dataWriter.Put(transform.position.z);
-
-        //dataWriter.Put(transform.eulerAngles.x);
-        //dataWriter.Put(transform.eulerAngles.y);
         
         if(transform.eulerAngles.x != 0.0f || transform.eulerAngles.y != 0.0f)
         {
@@ -81,16 +77,10 @@ public class Script3 : MonoBehaviour
         Vector2 newPosition = new Vector2();
         newPosition.x = dataReader.GetFloat();
         newPosition.y = dataReader.GetFloat();
-        //newPosition.z = dataReader.GetFloat();
 
         Vector3 newRotation = new Vector3();
-        //newRotation.x = dataReader.GetFloat();
-        //newRotation.y = dataReader.GetFloat();
         newRotation.z = dataReader.GetFloat();
-
         transform.position = newPosition;
         transform.eulerAngles = newRotation;
-
-
     }
 }
