@@ -2339,8 +2339,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClipArray:
-  - {fileID: 8300000, guid: 67357478fa899460198f84822b54cc8d, type: 3}
-  - {fileID: 8300000, guid: f928159802e324af2b95417fa6ce3fdf, type: 3}
+  - {fileID: 8300000, guid: af2b012ecebc34a91b65a0351bd46cc7, type: 3}
+  - {fileID: 8300000, guid: ef2cde67276e7490e860213ae5393038, type: 3}
   - {fileID: 8300000, guid: f928159802e324af2b95417fa6ce3fdf, type: 3}
   - {fileID: 8300000, guid: 2a921313c927f45238a0b8baabe3ab12, type: 3}
   - {fileID: 8300000, guid: eb8998f3b3d3a49db96a634bf39ed153, type: 3}
